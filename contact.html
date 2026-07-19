@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Kumar - Contact</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+</head>
+
+<body class="dark-bg">
+    <nav class="navbar dark-navbar">
+        <div class="logo">Dev<span style="font-weight:400;">Kumar</span></div>
+        <div class="nav-links">
+            <a href="about.html" class="nav-link">About</a>
+            <a href="projects.html" class="nav-link">Projects</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+        <div class="nav-github">
+            <a href="https://github.com/DEVKUMAR9012" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </nav>
+
+    <main class="contact-main">
+        <div class="contact-content-dark">
+            <h2 class="about-heading">Contact <span class="about-line"></span></h2>
+
+            <div id="formStatus" style="display:none; text-align:center; margin-bottom:1.5rem; font-weight:500;"></div>
+
+            <form class="contact-form-dark" id="contactForm" autocomplete="off">
+                <div class="form-group">
+                    <input type="text" name="from_name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="reply_to" placeholder="Your Email" required
+                        pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$">
+                    <span class="email-error" style="display:none; color:#ff4d4d; font-size:0.95rem;">
+                        Please enter a valid email address.
+                    </span>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn home-btn" id="submitBtn">Send Message</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        (function () {
+            // ============= REPLACE THESE THREE VALUES =============
+            const EMAILJS_USER_ID = "YOUR_PUBLIC_KEY";      // e.g., "user_abc123..."
+            const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";   // e.g., "service_xyz456"
+            const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID"; // e.g., "template_contact_form"
+            // =====================================================
+
+            // Do not proceed if placeholders are still there
+            if (
+                EMAILJS_USER_ID.startsWith("YOUR_") ||
+                EMAILJS_SERVICE_ID.startsWith("YOUR_") ||
+                EMAILJS_TEMPLATE_ID.startsWith("YOUR_")
+            ) {
+                document.getElementById('formStatus').style.display = 'block';
+                document.getElementById('formStatus').style.color = '#e74c3c';
+                document.getElementById('formStatus').textContent =
+                    '⚠️ Please set your real EmailJS keys in the code.';
+                document.getElementById('submitBtn').disabled = true;
+                return;
+            }
+
+            emailjs.init(EMAILJS_USER_ID);
+
+            const form = document.getElementById('contactForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const statusDiv = document.getElementById('formStatus');
+            const emailInput = form.reply_to;
+            const errorSpan = form.querySelector('.email-error');
+            const emailPattern = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/;
+
+            function showEmailError(show) {
+                errorSpan.style.display = show ? 'block' : 'none';
+            }
+
+            emailInput.addEventListener('input', function () {
+                if (emailPattern.test(this.value)) {
+                    showEmailError(false);
+                }
+            });
+
+            emailInput.addEventListener('blur', function () {
+                if (this.value && !emailPattern.test(this.value)) {
+                    showEmailError(true);
+                }
+            });
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                if (!emailPattern.test(emailInput.value)) {
+                    showEmailError(true);
+                    return;
+                }
+                showEmailError(false);
+
+                submitBtn.textContent = 'Sending...';
+                submitBtn.disabled = true;
+                statusDiv.style.display = 'none';
+
+                emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form)
+                    .then(function (response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                        form.reset();
+                        statusDiv.style.display = 'block';
+                        statusDiv.style.color = '#2ecc71';
+                        statusDiv.textContent = '✅ Message sent successfully! I\'ll get back to you soon.';
+                        submitBtn.textContent = 'Sent ✓';
+                        submitBtn.style.background = '#2ecc71';
+                    })
+                    .catch(function (error) {
+                        console.error('FAILED...', error);
+                        statusDiv.style.display = 'block';
+                        statusDiv.style.color = '#e74c3c';
+                        statusDiv.textContent = '❌ Oops! Something went wrong. Please try again later.';
+                        submitBtn.textContent = 'Error — Try Again';
+                        submitBtn.style.background = '#e74c3c';
+                    })
+                    .finally(function () {
+                        setTimeout(() => {
+                            submitBtn.textContent = 'Send Message';
+                            submitBtn.disabled = false;
+                            submitBtn.style.background = '';
+                        }, 4000);
+                    });
+            });
+        })();
+    </script>
+</body>
+
+</html>
