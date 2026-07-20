@@ -7,7 +7,7 @@ The site is fully **responsive**, built with **HTML, CSS, and JavaScript**, and 
 ---
 
 ## 🔗 Live Demo
-👉 [View Portfolio](https://devkumarweb.netlify.app)
+👉 [View Portfolio](myportfolio-vert-six-67.vercel.app)
 
 ---
 
