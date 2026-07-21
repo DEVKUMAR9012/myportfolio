@@ -1,403 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dev Kumar - Projects</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="theme-color" content="#1E1712">
+    <meta name="description"
+        content="Dev Kumar — a chronological log of full-stack projects actually shipped, not just submitted.">
+    <title>Dev Kumar — Build Log</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&family=Caveat:wght@500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
-
-        .dkp-root {
-          --bg: #07090F;
-          --surface: #10131C;
-          --border: rgba(255,255,255,0.08);
-          --ember: #F5A623;
-          --violet: #7B61FF;
-          --signal: #34D399;
-          --ink: #F2F4F8;
-          --mist: #8B93A7;
-          background: var(--bg);
-          color: var(--ink);
-          font-family: 'Inter', -apple-system, sans-serif;
-          -webkit-font-smoothing: antialiased;
-        }
-        .dkp-display { font-family: 'Space Grotesk', sans-serif; }
-        .dkp-mono { font-family: 'JetBrains Mono', monospace; }
-
-        .dkp-glow {
-          position: absolute;
-          inset: 0;
-          pointer-events: none;
-          background:
-            radial-gradient(600px circle at 15% -10%, rgba(123,97,255,0.16), transparent 60%),
-            radial-gradient(500px circle at 90% 0%, rgba(245,166,35,0.13), transparent 60%);
-        }
-
-        .dkp-tab {
-          border: 1px solid var(--border);
-          color: var(--mist);
-          background: transparent;
-          transition: border-color .2s ease, color .2s ease, background .2s ease;
-          cursor: pointer;
-        }
-        .dkp-tab:hover { color: var(--ink); border-color: rgba(255,255,255,0.2); }
-        .dkp-tab--active,
-        .dkp-tab--active:hover {
-          background: linear-gradient(135deg, var(--ember), var(--violet));
-          color: #0B0B12;
-          border-color: transparent;
-          font-weight: 600;
-        }
-
-        .dkp-card {
-          transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
-        }
-        .dkp-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 16px 40px -16px rgba(123,97,255,0.3);
-        }
-
-        .dkp-card--plain {
-          background: var(--surface);
-          border: 1px solid var(--border);
-        }
-        .dkp-card--plain:hover { border-color: rgba(245,166,35,0.3); }
-
-        .dkp-card--featured {
-          position: relative;
-          border: 1px solid transparent;
-          background-image:
-            linear-gradient(var(--surface), var(--surface)),
-            linear-gradient(135deg, var(--ember), var(--violet));
-          background-origin: border-box;
-          background-clip: padding-box, border-box;
-        }
-
-        .dkp-dot-live {
-          background: var(--signal);
-          animation: dkp-pulse 2s infinite;
-        }
-        @keyframes dkp-pulse {
-          0% { box-shadow: 0 0 0 0 rgba(52,211,153,0.5); }
-          70% { box-shadow: 0 0 0 7px rgba(52,211,153,0); }
-          100% { box-shadow: 0 0 0 0 rgba(52,211,153,0); }
-        }
-
-        .dkp-enter {
-          opacity: 0;
-          transform: translateY(16px);
-          animation: dkp-fade-up .6s ease forwards;
-        }
-        @keyframes dkp-fade-up {
-          to { opacity: 1; transform: translateY(0); }
-        }
-
-        .dkp-link { color: var(--ember); transition: color .2s ease; text-decoration: none; }
-        .dkp-link:hover { color: var(--violet); }
-        .dkp-link:hover .dkp-link-icon { transform: translate(2px, -2px); }
-        .dkp-link-icon { transition: transform .2s ease; }
-
-        @media (prefers-reduced-motion: reduce) {
-          .dkp-enter { animation: none; opacity: 1; transform: none; }
-          .dkp-dot-live { animation: none; }
-          .dkp-card, .dkp-card:hover { transition: none; transform: none; }
-        }
-
-        /* Utility classes to emulate Tailwind */
-        .min-h-screen { min-height: 100vh; }
-        .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
-        .py-5 { padding-top: 1.25rem; padding-bottom: 1.25rem; }
-        .pt-16 { padding-top: 4rem; }
-        .pb-10 { padding-bottom: 2.5rem; }
-        .mb-4 { margin-bottom: 1rem; }
-        .mb-5 { margin-bottom: 1.25rem; }
-        .mb-6 { margin-bottom: 1.5rem; }
-        .mb-10 { margin-bottom: 2.5rem; }
-        .mb-14 { margin-bottom: 3.5rem; }
-        .pb-24 { padding-bottom: 6rem; }
-        .max-w-6xl { max-width: 72rem; }
-        .max-w-2xl { max-width: 42rem; }
-        .mx-auto { margin-left: auto; margin-right: auto; }
-        .overflow-hidden { overflow: hidden; }
-        .relative { position: relative; }
-        .z-10 { z-index: 10; }
-        .flex { display: flex; }
-        .flex-wrap { flex-wrap: wrap; }
-        .flex-col { flex-direction: column; }
-        .items-center { align-items: center; }
-        .items-start { align-items: flex-start; }
-        .justify-between { justify-content: space-between; }
-        .justify-center { justify-content: center; }
-        .gap-1 { gap: 0.25rem; }
-        .gap-1\.5 { gap: 0.375rem; }
-        .gap-2 { gap: 0.5rem; }
-        .gap-5 { gap: 1.25rem; }
-        .gap-6 { gap: 1.5rem; }
-        .grid { display: grid; }
-        .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
-        .text-xs { font-size: 0.75rem; line-height: 1rem; }
-        .text-sm { font-size: 0.875rem; line-height: 1.25rem; }
-        .text-base { font-size: 1rem; line-height: 1.5rem; }
-        .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
-        .text-xl { font-size: 1.25rem; line-height: 1.75rem; }
-        .text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
-        .tracking-widest { letter-spacing: 0.1em; }
-        .uppercase { text-transform: uppercase; }
-        .leading-tight { line-height: 1.25; }
-        .leading-relaxed { line-height: 1.625; }
-        .font-semibold { font-weight: 600; }
-        .font-medium { font-weight: 500; }
-        .rounded-full { border-radius: 9999px; }
-        .rounded-2xl { border-radius: 1rem; }
-        .rounded-lg { border-radius: 0.5rem; }
-        .rounded-xl { border-radius: 0.75rem; }
-        .p-5 { padding: 1.25rem; }
-        .p-7 { padding: 1.75rem; }
-        .px-4 { padding-left: 1rem; padding-right: 1rem; }
-        .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
-        .px-2\.5 { padding-left: 0.625rem; padding-right: 0.625rem; }
-        .py-1 { padding-top: 0.25rem; padding-bottom: 0.25rem; }
-        .w-12 { width: 3rem; }
-        .h-12 { height: 3rem; }
-        .w-10 { width: 2.5rem; }
-        .h-10 { height: 2.5rem; }
-        .w-1\.5 { width: 0.375rem; }
-        .h-1\.5 { height: 0.375rem; }
-        .inline-block { display: inline-block; }
-        .inline-flex { display: inline-flex; }
-        .mt-auto { margin-top: auto; }
-        
-        @media (min-width: 768px) {
-            .md\:pt-24 { padding-top: 6rem; }
-            .md\:pb-14 { padding-bottom: 3.5rem; }
-            .md\:text-6xl { font-size: 3.75rem; line-height: 1; }
-            .md\:text-lg { font-size: 1.125rem; line-height: 1.75rem; }
-            .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        }
-        @media (min-width: 1024px) {
-            .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-        }
-    </style>
+    <link rel="stylesheet" href="theme.css">
 </head>
-<body class="dkp-root min-h-screen">
-    <!-- Navigation Bar -->
-    <nav class="navbar dark-navbar" style="border-bottom: 1px solid var(--border); background: var(--surface);">
-        <div class="logo">Dev<span style="font-weight:400;">Kumar</span></div>
-        <div class="nav-links">
-            <a href="about.html" class="nav-link">About</a>
-            <a href="projects.html" class="nav-link active">Projects</a>
-            <a href="contact.html" class="nav-link">Contact</a>
-        </div>
-        <div class="nav-github">
-            <a href="https://github.com/DEVKUMAR9012" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com/in/dev-kumar-950376305" target="_blank" style="margin-left: 18px;"><i class="fab fa-linkedin"></i></a>
-            <a href="resume.pdf" target="_blank" style="margin-left: 18px;"><i class="fas fa-file-alt"></i></a>
-        </div>
-    </nav>
 
-    <div class="max-w-6xl mx-auto">
-        <section class="relative px-6 pt-16 pb-10 md:pt-24 md:pb-14 overflow-hidden">
-            <div class="dkp-glow"></div>
-            <div class="relative z-10 max-w-2xl">
-                <p class="dkp-mono text-xs tracking-widest uppercase mb-4" style="color: var(--ember);">
-                    ~/dev-kumar/projects
-                </p>
-                <h1 class="dkp-display text-4xl md:text-6xl font-semibold leading-tight mb-4">
-                    Things I've shipped, not just submitted.
-                </h1>
-                <p class="text-base md:text-lg" style="color: var(--mist);">
-                    Full-stack marketplaces, real-time apps, and a couple of side experiments — all live, all mine.
-                </p>
+<body class="bl">
+
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+            <filter id="blRough" x="-30%" y="-30%" width="160%" height="160%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.02 0.12" numOctaves="2" seed="7" result="n" />
+                <feDisplacementMap in="SourceGraphic" in2="n" scale="3.5" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+            <filter id="blGrain">
+                <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="n" />
+                <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.6 0" />
+            </filter>
+        </defs>
+    </svg>
+
+    <header class="bl-nav">
+        <div class="bl-nav-inner">
+            <span class="bl-wordmark">Dev<span>Kumar</span></span>
+            <nav class="bl-navlinks" aria-label="Primary">
+                <a href="about.html">About</a>
+                <a href="projects.html" class="is-active" aria-current="page">Projects</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="bl-navicons">
+                <a href="https://github.com/DEVKUMAR9012" target="_blank" rel="noopener noreferrer"
+                    aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/dev-kumar-950376305" target="_blank" rel="noopener noreferrer"
+                    aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume"><i
+                        class="fas fa-file-alt"></i></a>
             </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="bl-desk">
+            <svg class="bl-grain" aria-hidden="true">
+                <rect width="100%" height="100%" filter="url(#blGrain)" />
+            </svg>
+
+            <div class="bl-hero">
+                <p class="bl-kicker" id="kicker">07 shipped · 3rd-sem CSE</p>
+                <h1 class="bl-headline">A log of what I've actually
+                    <span class="bl-underline">built<svg class="bl-underline-svg" viewBox="0 0 140 16"
+                            preserveAspectRatio="none" aria-hidden="true">
+                            <path class="bl-underline-path" filter="url(#blRough)" d="M2 9 Q 35 3, 70 8 T 138 6" />
+                        </svg></span>.
+                </h1>
+
+
+            <div class="bl-ledger" id="ledger-featured"></div>
         </section>
 
-        <div class="flex flex-wrap gap-2 px-6 mb-10" id="filter-container">
-            <button data-filter="all" class="dkp-tab px-4 py-2 rounded-full text-sm dkp-tab--active">All</button>
-            <button data-filter="fullstack" class="dkp-tab px-4 py-2 rounded-full text-sm">Full-Stack</button>
-            <button data-filter="ai" class="dkp-tab px-4 py-2 rounded-full text-sm">AI</button>
-            <button data-filter="mobile" class="dkp-tab px-4 py-2 rounded-full text-sm">Mobile</button>
-            <button data-filter="web" class="dkp-tab px-4 py-2 rounded-full text-sm">Web</button>
+        <div class="bl-seam" aria-hidden="true">
+            <svg class="bl-seam-svg" viewBox="0 0 1200 34" preserveAspectRatio="none">
+                <path class="bl-seam-fill" d="M0 34 L0 16 Q 300 2, 600 14 T 1200 10 L1200 34 Z" />
+                <path class="bl-seam-stroke" filter="url(#blRough)" d="M0 16 Q 300 2, 600 14 T 1200 10" />
+            </svg>
         </div>
 
-        <div id="projects-container">
-            <!-- Rendered by JS -->
-        </div>
-    </div>
+        <section class="bl-page">
+            <svg class="bl-grain" aria-hidden="true">
+                <rect width="100%" height="100%" filter="url(#blGrain)" />
+            </svg>
+
+            <div class="bl-ledger bl-ledger--compact bl-wrap" id="ledger-compact"></div>
+
+            <footer class="bl-footer">
+                <p class="bl-footer-line">— logged by Dev, more entries as I ship them</p>
+                <div class="bl-footer-links">
+                    <a href="https://github.com/DEVKUMAR9012" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://linkedin.com/in/dev-kumar-950376305" target="_blank"
+                        rel="noopener noreferrer">LinkedIn</a>
+                    <a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </footer>
+        </section>
+    </main>
 
     <script>
-        const projects = [
+        const PROJECTS = [
             {
-                id: 'noteshere',
-                name: 'NotesHere',
-                tagline: 'Full-stack notes marketplace for college students',
-                description: 'A marketplace where students buy and sell study notes — with secure Razorpay payments, Google OAuth, real-time buyer-seller chat, an in-app wallet, and AI-assisted study tools.',
+                entryNo: '01', name: 'NotesHere',
+                tagline: 'A notes marketplace for college students',
+                description: 'Students buy and sell study notes here — real Razorpay payments, Google OAuth, live buyer–seller chat, an in-app wallet, and a few AI tools for actual studying.',
+                note: 'the one that taught me what “production” really means',
                 tags: ['React', 'Node.js', 'Express', 'MongoDB', 'Razorpay', 'Google OAuth'],
                 categories: ['fullstack', 'ai'],
-                link: 'https://noteshere.site',
-                linkLabel: 'noteshere.site',
-                icon: 'fa-book-open',
-                featured: true,
+                link: 'https://noteshere.site', linkLabel: 'noteshere.site',
+                featured: true
             },
             {
-                id: 'loveforlove',
-                name: 'LoveForLove',
-                tagline: 'An interactive experience built for couples',
-                description: 'A relationship app with mood tracking and streaks, a shared calendar, a private media gallery, and animated micro-interactions throughout — built entirely in React.',
+                entryNo: '02', name: 'LoveForLove',
+                tagline: 'A small, interactive world built for two people',
+                description: 'Mood tracking with streaks, a shared calendar, a private gallery, and a lot of small animated details — the kind of app where the polish is the whole point.',
+                note: 'still polishing this one, nobody’s even asking me to',
                 tags: ['React', 'Tailwind CSS', 'Framer Motion', 'React Router'],
                 categories: ['fullstack'],
-                link: 'https://loveforlove.vercel.app',
-                linkLabel: 'loveforlove.vercel.app',
-                icon: 'fa-heart',
-                featured: true,
-            },
-
-            {
-                id: 'zizzy',
-                name: 'ZIZZY',
-                tagline: 'Food delivery ordering platform',
-                tags: ['HTML', 'CSS', 'JavaScript'],
-                categories: ['web'],
-                link: 'https://685266a38cd352d07ebf8de5--rainbow-mousse-f22f4d.netlify.app/111',
-                linkLabel: 'View live demo',
-                icon: 'fa-utensils',
-                featured: false,
+                link: 'https://loveforlove.vercel.app', linkLabel: 'loveforlove.vercel.app',
+                featured: true
             },
             {
-                id: 'ai-research',
-                name: 'Advanced AI Research Center',
-                tagline: 'NLP, vision & robotics concepts hub',
-                tags: ['HTML', 'CSS', 'JavaScript'],
-                categories: ['ai', 'web'],
-                link: 'https://deivocationalit2305800.netlify.app/',
-                linkLabel: 'View live demo',
-                icon: 'fa-microchip',
-                featured: false,
+                entryNo: '03', name: 'Daily News Digest',
+                tagline: 'News portal with category filters, live search & auth-gated bookmarks',
+                tags: ['HTML', 'CSS', 'JavaScript', 'Google OAuth', 'Vercel'],
+                categories: ['web', 'fullstack'],
+                link: 'https://news-blond-sigma.vercel.app/', linkLabel: 'news-blond-sigma.vercel.app',
+                featured: false
             },
             {
-                id: 'ecommerce',
-                name: 'E-Commerce Web App',
-                tagline: 'Storefront with cart & checkout flow',
-                tags: ['HTML', 'CSS', 'JavaScript'],
-                categories: ['web'],
-                link: 'https://ecomwebdev.netlify.app/',
-                linkLabel: 'View live demo',
-                icon: 'fa-shopping-cart',
-                featured: false,
-            },
-            {
-                id: 'portfolio',
-                name: 'Web Dev Portfolio',
-                tagline: 'An earlier personal portfolio site',
+                entryNo: '04', name: 'Web Dev Portfolio',
+                tagline: 'An earlier personal site — where this one started',
                 tags: ['HTML', 'CSS', 'JavaScript', 'Python', 'C++'],
                 categories: ['web'],
-                link: 'https://devkumarweb.netlify.app',
-                linkLabel: 'devkumarweb.netlify.app',
-                icon: 'fa-code',
-                featured: false,
+                link: 'https://devkumarweb.netlify.app', linkLabel: 'devkumarweb.netlify.app',
+                featured: false
             },
+            {
+                entryNo: '05', name: 'ZIZZY',
+                tagline: 'Food delivery ordering interface — menu, cart, checkout',
+                tags: ['HTML', 'CSS', 'JavaScript'],
+                categories: ['web'],
+                link: 'https://685266a38cd352d07ebf8de5--rainbow-mousse-f22f4d.netlify.app/111', linkLabel: 'view live demo',
+                featured: false
+            },
+            {
+                entryNo: '06', name: 'Advanced AI Research Center',
+                tagline: 'A concept hub for NLP, vision & robotics',
+                tags: ['HTML', 'CSS', 'JavaScript'],
+                categories: ['ai', 'web'],
+                link: 'https://deivocationalit2305800.netlify.app/', linkLabel: 'view live demo',
+                featured: false
+            },
+            {
+                entryNo: '07', name: 'E-Commerce Web App',
+                tagline: 'Storefront with a full cart & checkout flow',
+                tags: ['HTML', 'CSS', 'JavaScript'],
+                categories: ['web'],
+                link: 'https://ecomwebdev.netlify.app/', linkLabel: 'view live demo',
+                featured: false
+            }
         ];
 
-        function renderProjects(filter = 'all') {
-            const container = document.getElementById('projects-container');
-            container.innerHTML = '';
-            
-            const filtered = filter === 'all' ? projects : projects.filter(p => p.categories.includes(filter));
+        function stamp(p) {
+            if (!p.link) {
+                return '<span class="bl-stamp bl-stamp--dev"><span class="bl-stamp-ring"></span><span class="bl-stamp-text">in dev</span></span>';
+            }
+            return '<span class="bl-stamp"><span class="bl-stamp-ring" style="filter:url(#blRough)"></span><span class="bl-stamp-text">live</span></span>';
+        }
+
+        function majorEntry(p) {
+            return `
+    <article class="bl-entry">
+      <div class="bl-entry-num">${p.entryNo}</div>
+      <div class="bl-entry-body">
+        <div class="bl-entry-head">
+          <h3 class="bl-entry-name">${p.name}</h3>
+          ${stamp(p)}
+        </div>
+        <p class="bl-entry-tagline">${p.tagline}</p>
+        <p class="bl-entry-desc">${p.description}</p>
+        <ul class="bl-tags" aria-label="Tech stack">${p.tags.map(t => `<li>${t}</li>`).join('')}</ul>
+        ${p.link
+                    ? `<a class="bl-entry-link" href="${p.link}" target="_blank" rel="noopener noreferrer">${p.linkLabel} <i class="fas fa-arrow-right" aria-hidden="true"></i></a>`
+                    : `<span class="bl-entry-link bl-entry-link--muted">not deployed yet</span>`}
+      </div>
+      ${p.note ? `<div class="bl-note"><span class="bl-note-mark">✎</span>${p.note}</div>` : '<div></div>'}
+    </article>`;
+        }
+
+        function minorEntry(p) {
+            return `
+    <article class="bl-row">
+      <div class="bl-row-top">
+        <span class="bl-row-num">${p.entryNo}</span>
+        <span class="bl-row-dot ${p.link ? '' : 'bl-row-dot--dev'}" aria-hidden="true"></span>
+      </div>
+      <span class="bl-row-name">${p.name}</span>
+      <span class="bl-row-tagline">${p.tagline}</span>
+      <ul class="bl-row-tags">${p.tags.slice(0, 3).map(t => `<li>${t}</li>`).join('')}</ul>
+      ${p.link
+                    ? `<a class="bl-row-link" href="${p.link}" target="_blank" rel="noopener noreferrer">${p.linkLabel} <i class="fas fa-arrow-right" aria-hidden="true"></i></a>`
+                    : `<span class="bl-row-link bl-row-link--muted">in dev</span>`}
+    </article>`;
+        }
+
+        const featuredEl = document.getElementById('ledger-featured');
+        const compactEl = document.getElementById('ledger-compact');
+
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const observer = reduceMotion ? null : new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); observer.unobserve(e.target); } });
+        }, { threshold: .12 });
+
+        function render(filter) {
+            const filtered = filter === 'all' ? PROJECTS : PROJECTS.filter(p => p.categories.includes(filter));
             const featured = filtered.filter(p => p.featured);
             const rest = filtered.filter(p => !p.featured);
 
-            let html = '';
-
-            if (featured.length > 0) {
-                html += `
-                <section class="px-6 mb-14">
-                    <h2 class="dkp-display text-sm uppercase tracking-widest mb-5" style="color: var(--mist);">Featured</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        ${featured.map((p, i) => `
-                        <div class="dkp-card dkp-card--featured dkp-enter rounded-2xl p-7 flex flex-col" style="animation-delay: ${i * 100}ms">
-                            <div class="flex items-start justify-between mb-5">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(245,166,35,0.12);">
-                                    <i class="fas ${p.icon}" style="color: var(--ember); font-size: 1.25rem;"></i>
-                                </div>
-                                ${p.link ? `
-                                <span class="dkp-mono flex items-center gap-1 text-xs" style="color: var(--signal);">
-                                    <span class="dkp-dot-live inline-block w-1.5 h-1.5 rounded-full"></span> LIVE
-                                </span>` : `
-                                <span class="dkp-mono text-xs" style="color: var(--mist);">IN DEV</span>`}
-                            </div>
-                            <h3 class="dkp-display text-xl font-semibold mb-1">${p.name}</h3>
-                            <p class="text-xs mb-3" style="color: var(--mist);">${p.tagline}</p>
-                            <p class="text-sm leading-relaxed mb-5" style="color: var(--mist);">${p.description}</p>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                ${p.tags.map(t => `<span class="text-xs px-2.5 py-1 rounded-full" style="background: rgba(255,255,255,0.05); border: 1px solid var(--border);">${t}</span>`).join('')}
-                            </div>
-                            <div class="mt-auto">
-                                ${p.link ? `
-                                <a href="${p.link}" target="_blank" rel="noopener noreferrer" class="dkp-link inline-flex items-center gap-1.5 text-sm font-medium">
-                                    ${p.linkLabel} <i class="fas fa-external-link-alt dkp-link-icon" style="font-size: 0.85rem; margin-left: 0.25rem;"></i>
-                                </a>` : `
-                                <span class="text-sm" style="color: var(--mist);">Not deployed yet</span>`}
-                            </div>
-                        </div>`).join('')}
-                    </div>
-                </section>`;
-            }
-
-            if (rest.length > 0) {
-                html += `
-                <section class="px-6 pb-24">
-                    <h2 class="dkp-display text-sm uppercase tracking-widest mb-5" style="color: var(--mist);">${featured.length > 0 ? 'More Projects' : 'Projects'}</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                        ${rest.map((p, i) => `
-                        <div class="dkp-card dkp-card--plain dkp-enter rounded-2xl p-5 flex flex-col" style="animation-delay: ${i * 70}ms">
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: rgba(123,97,255,0.12);">
-                                    <i class="fas ${p.icon}" style="color: var(--violet); font-size: 1rem;"></i>
-                                </div>
-                                ${p.link ? `
-                                <span class="dkp-dot-live inline-block w-1.5 h-1.5 rounded-full"></span>` : `
-                                <span class="inline-block w-1.5 h-1.5 rounded-full" style="background: var(--mist); opacity: 0.5;"></span>`}
-                            </div>
-                            <h3 class="dkp-display text-base font-semibold mb-1">${p.name}</h3>
-                            <p class="text-xs mb-4" style="color: var(--mist);">${p.tagline}</p>
-                            <div class="flex flex-wrap gap-1 mb-4">
-                                ${p.tags.slice(0, 3).map(t => `<span class="text-xs px-2 py-1 rounded-full" style="background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--mist);">${t}</span>`).join('')}
-                            </div>
-                            <div class="mt-auto">
-                                ${p.link ? `
-                                <a href="${p.link}" target="_blank" rel="noopener noreferrer" class="dkp-link inline-flex items-center gap-1 text-xs font-medium">
-                                    ${p.linkLabel} <i class="fas fa-external-link-alt dkp-link-icon" style="font-size: 0.75rem; margin-left: 0.25rem;"></i>
-                                </a>` : `
-                                <span class="text-xs" style="color: var(--mist); opacity: 0.7;">In development</span>`}
-                            </div>
-                        </div>`).join('')}
-                    </div>
-                </section>`;
-            }
+            featuredEl.innerHTML = featured.map(majorEntry).join('');
 
             if (filtered.length === 0) {
-                html += `<div class="px-6 py-24 text-center text-sm" style="color: var(--mist);">Nothing here yet for this filter.</div>`;
+                compactEl.innerHTML = '<p class="bl-empty">Nothing logged under this filter yet.</p>';
+            } else {
+                compactEl.innerHTML = rest.map(minorEntry).join('');
             }
 
-            container.innerHTML = html;
+            if (observer) {
+                document.querySelectorAll('.bl-entry, .bl-row').forEach(el => observer.observe(el));
+            } else {
+                document.querySelectorAll('.bl-entry, .bl-row').forEach(el => el.classList.add('is-visible'));
+            }
         }
 
-        // Initialize
-        renderProjects();
-
-        // Setup filter buttons
-        document.querySelectorAll('.dkp-tab').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                // Update active state
-                document.querySelectorAll('.dkp-tab').forEach(b => b.classList.remove('dkp-tab--active'));
-                e.target.classList.add('dkp-tab--active');
-                
-                // Re-render
-                renderProjects(e.target.dataset.filter);
+        document.querySelectorAll('.bl-tab').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.bl-tab').forEach(b => {
+                    b.classList.remove('bl-tab--active');
+                    b.setAttribute('aria-selected', 'false');
+                });
+                btn.classList.add('bl-tab--active');
+                btn.setAttribute('aria-selected', 'true');
+                render(btn.dataset.filter);
             });
         });
+
+        render('all');
     </script>
-    <script src="script.js"></script>
 </body>
+
 </html>

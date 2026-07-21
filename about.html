@@ -3,80 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dev Kumar - About</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="theme-color" content="#1E1712">
+    <title>Dev Kumar — About</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+    <link rel="stylesheet" href="theme.css">
+    <style>
+        .about-content {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        .about-image {
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            display: flex;
+            justify-content: center;
+        }
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            border: 2px solid var(--brass);
+            box-shadow: 8px 8px 0px rgba(201, 162, 75, 0.2);
+        }
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 30px;
+        }
+        .skill-item {
+            font-size: .85rem;
+            color: var(--ink);
+            border: 1px solid rgba(42, 33, 24, .2);
+            border-radius: 999px;
+            padding: 6px 14px;
+            background: rgba(107, 79, 28, .05);
+        }
+    </style>
 </head>
-<body class="dark-bg">
-    <!-- Navigation Bar -->
-    <nav class="navbar dark-navbar">
-        <div class="logo">Dev<span style="font-weight:400;">Kumar</span></div>
-        <div class="nav-links">
-            <a href="about.html" class="nav-link">About</a>
-            <a href="projects.html" class="nav-link">Projects</a>
-        </div>
-        <div class="nav-github">
-            <a href="https://github.com/DEVKUMAR9012" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com/in/dev-kumar-950376305" target="_blank" style="margin-left: 18px;"><i class="fab fa-linkedin"></i></a>
-            <a href="resume.pdf" target="_blank" style="margin-left: 18px;"><i class="fas fa-file-alt"></i></a>
-        </div>
-    </nav>
+<body class="bl">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+            <filter id="blRough" x="-30%" y="-30%" width="160%" height="160%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.02 0.12" numOctaves="2" seed="7" result="n" />
+                <feDisplacementMap in="SourceGraphic" in2="n" scale="3.5" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+            <filter id="blGrain">
+                <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="n" />
+                <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.6 0" />
+            </filter>
+        </defs>
+    </svg>
 
-    <main class="about-main">
-        <div class="about-left">
-            <h1 class="intro-title">Dev Kumar</h1>
-            <a href="contact.html" class="contact-link">Contact Me</a>
-            <section class="about-section">
-                <p class="about-desc sparkle-on-load about-desc-flydown" id="fly-letters">I'm Dev Kumar, a passionate developer skilled in C, C++, Java, Python, Ruby, HTML, CSS, and SQL. I love building user-friendly websites and applications.</p>
-            </section>
+    <header class="bl-nav">
+        <div class="bl-nav-inner">
+            <span class="bl-wordmark">Dev<span>Kumar</span></span>
+            <nav class="bl-navlinks" aria-label="Primary">
+                <a href="about.html" class="is-active" aria-current="page">About</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="bl-navicons">
+                <a href="https://github.com/DEVKUMAR9012" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/dev-kumar-950376305" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume"><i class="fas fa-file-alt"></i></a>
+            </div>
         </div>
-        <div class="about-right">
-            <img src="ss/Snapchat-290620880.jpg.jpeg" alt="Profile picture of Dev Kumar" class="profile-photo-large" />
+    </header>
 
+    <main>
+        <section class="bl-desk">
+            <svg class="bl-grain" aria-hidden="true">
+                <rect width="100%" height="100%" filter="url(#blGrain)" />
+            </svg>
+            <div class="bl-hero">
+                <p class="bl-kicker">Developer · Creator</p>
+                <h1 class="bl-headline">About 
+                    <span class="bl-underline">me<svg class="bl-underline-svg" viewBox="0 0 140 16" preserveAspectRatio="none" aria-hidden="true"><path class="bl-underline-path" filter="url(#blRough)" d="M2 9 Q 35 3, 70 8 T 138 6" /></svg></span>.
+                </h1>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p class="bl-subline">I'm Dev Kumar, a passionate developer skilled in C, C++, Java, Python, Ruby, HTML, CSS, and SQL. I love building user-friendly websites and applications.</p>
+                        
+                        <div style="margin-top: 30px;">
+                            <p class="bl-kicker" style="margin-bottom: 10px;">Tech Stack</p>
+                            <div class="bl-tags">
+                                <li style="font-size: .85rem; padding: 6px 14px;">C</li>
+                                <li style="font-size: .85rem; padding: 6px 14px;">C++</li>
+                                <li style="font-size: .85rem; padding: 6px 14px;">Python</li>
+                                <li style="font-size: .85rem; padding: 6px 14px;">JavaScript</li>
+                                <li style="font-size: .85rem; padding: 6px 14px;">HTML</li>
+                                <li style="font-size: .85rem; padding: 6px 14px;">CSS</li>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 40px;">
+                            <a href="contact.html" class="bl-entry-link" style="font-size: 1rem;">Get in touch <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <img src="ss/Snapchat-290620880.jpg.jpeg" alt="Profile picture of Dev Kumar" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="bl-seam" aria-hidden="true">
+            <svg class="bl-seam-svg" viewBox="0 0 1200 34" preserveAspectRatio="none">
+                <path class="bl-seam-fill" d="M0 34 L0 16 Q 300 2, 600 14 T 1200 10 L1200 34 Z" />
+                <path class="bl-seam-stroke" filter="url(#blRough)" d="M0 16 Q 300 2, 600 14 T 1200 10" />
+            </svg>
         </div>
+
+        <section class="bl-page">
+            <svg class="bl-grain" aria-hidden="true">
+                <rect width="100%" height="100%" filter="url(#blGrain)" />
+            </svg>
+            <footer class="bl-footer">
+                <p class="bl-footer-line">— logged by Dev</p>
+                <div class="bl-footer-links">
+                    <a href="https://github.com/DEVKUMAR9012" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://linkedin.com/in/dev-kumar-950376305" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </footer>
+        </section>
     </main>
-
-    <section class="skills-boxes-section">
-        <div class="skills-boxes-title">Skills</div>
-        <div class="skills-boxes-grid">
-            <div class="skill-box-anim">C</div>
-            <div class="skill-box-anim">C++</div>
-            <div class="skill-box-anim">Python</div>
-            <div class="skill-box-anim">JavaScript</div>
-            <div class="skill-box-anim">HTML</div>
-            <div class="skill-box-anim">CSS</div>
-        </div>
-    </section>
-
     <script src="script.js"></script>
-    <audio id="tunnSound" src="tunn.mp3" preload="auto"></audio>
-    <script>
-    // Only play sound on main button click
-    document.querySelectorAll('.home-btn, .contact-link').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            var audio = document.getElementById('tunnSound');
-            audio.currentTime = 0;
-            audio.play();
-        });
-    });
-
-    // Fly letters animation on hover
-    (function() {
-      var el = document.getElementById('fly-letters');
-      var text = el.textContent;
-      el.innerHTML = '';
-      for (let i = 0; i < text.length; i++) {
-        var span = document.createElement('span');
-        span.textContent = text[i];
-        if (text[i] !== ' ') span.className = 'fly-letter';
-        el.appendChild(span);
-      }
-      el.addEventListener('mouseenter', function() {
-        el.classList.add('flying');
-        setTimeout(function() { el.classList.remove('flying'); }, 700);
-      });
-    })();
-    </script>
 </body>
 </html>

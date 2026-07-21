@@ -1,50 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dev Kumar - Contact</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="theme-color" content="#1E1712">
+    <title>Dev Kumar — Contact</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="theme.css">
+    <style>
+        .contact-layout {
+            display: flex;
+            flex-wrap: wrap-reverse;
+            gap: 60px;
+            margin-top: 40px;
+        }
+        .contact-form-container {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+        }
+        .contact-info {
+            flex: 1;
+            min-width: 250px;
+            max-width: 400px;
+            padding-top: 10px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .contact-item i {
+            font-size: 1.25rem;
+            color: var(--brass);
+            margin-top: 4px;
+        }
+        .contact-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--cream-soft);
+            margin-bottom: 4px;
+        }
+        .bl-input, .bl-textarea {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(241, 232, 214, 0.3);
+            color: var(--cream);
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            padding: 12px 0;
+            margin-bottom: 24px;
+            transition: border-color 0.2s ease;
+        }
+        .bl-input:focus, .bl-textarea:focus {
+            outline: none;
+            border-bottom-color: var(--brass);
+        }
+        .bl-input::placeholder, .bl-textarea::placeholder {
+            color: var(--cream-soft);
+            opacity: 0.6;
+        }
+        .bl-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .bl-btn {
+            background: var(--brass);
+            color: var(--desk);
+            border: none;
+            padding: 12px 24px;
+            font-family: var(--font-mono);
+            font-weight: 600;
+            font-size: .9rem;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.2s ease, transform 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .bl-btn:hover {
+            background: var(--paper);
+            transform: translateY(-2px);
+        }
+        .email-error {
+            color: #ff6b6b;
+            font-size: 0.8rem;
+            display: block;
+            margin-top: -18px;
+            margin-bottom: 24px;
+        }
+    </style>
 </head>
+<body class="bl">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+            <filter id="blRough" x="-30%" y="-30%" width="160%" height="160%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.02 0.12" numOctaves="2" seed="7" result="n" />
+                <feDisplacementMap in="SourceGraphic" in2="n" scale="3.5" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+            <filter id="blGrain">
+                <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="n" />
+                <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.6 0" />
+            </filter>
+        </defs>
+    </svg>
 
-<body class="dark-bg">
-    <nav class="navbar dark-navbar">
-        <div class="logo">Dev<span style="font-weight:400;">Kumar</span></div>
-        <div class="nav-links">
-            <a href="about.html" class="nav-link">About</a>
-            <a href="projects.html" class="nav-link">Projects</a>
-            <a href="contact.html" class="nav-link">Contact</a>
+    <header class="bl-nav">
+        <div class="bl-nav-inner">
+            <span class="bl-wordmark">Dev<span>Kumar</span></span>
+            <nav class="bl-navlinks" aria-label="Primary">
+                <a href="about.html">About</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html" class="is-active" aria-current="page">Contact</a>
+            </nav>
+            <div class="bl-navicons">
+                <a href="https://github.com/DEVKUMAR9012" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/dev-kumar-950376305" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume"><i class="fas fa-file-alt"></i></a>
+            </div>
         </div>
-        <div class="nav-github">
-            <a href="https://github.com/DEVKUMAR9012" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com/in/dev-kumar-950376305" target="_blank" style="margin-left: 18px;"><i class="fab fa-linkedin"></i></a>
-            <a href="resume.pdf" target="_blank" style="margin-left: 18px;"><i class="fas fa-file-alt"></i></a>
-        </div>
-    </nav>
+    </header>
 
-    <main class="contact-main">
-        <div class="contact-content-dark">
-            <h2 class="about-heading">Contact <span class="about-line"></span></h2>
-            <form class="contact-form-dark" action="https://formsubmit.co/dk25042008@gmail.com" method="POST" id="contactForm" autocomplete="off">
-                <div class="form-group">
-                    <input type="text" name="name" placeholder="Your Name" required>
+    <main>
+        <section class="bl-desk">
+            <svg class="bl-grain" aria-hidden="true">
+                <rect width="100%" height="100%" filter="url(#blGrain)" />
+            </svg>
+            <div class="bl-hero">
+                <p class="bl-kicker">Let's Talk</p>
+                <h1 class="bl-headline">Drop me a 
+                    <span class="bl-underline">line<svg class="bl-underline-svg" viewBox="0 0 140 16" preserveAspectRatio="none" aria-hidden="true"><path class="bl-underline-path" filter="url(#blRough)" d="M2 9 Q 35 3, 70 8 T 138 6" /></svg></span>.
+                </h1>
+                
+                <div class="contact-layout">
+                    <div class="contact-form-container">
+                    <form action="https://formsubmit.co/dk25042008@gmail.com" method="POST" id="contactForm" autocomplete="off">
+                        <input type="text" name="name" class="bl-input" placeholder="Your Name" required>
+                        
+                        <input type="email" name="email" class="bl-input" placeholder="Your Email" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" style="margin-bottom: 8px;">
+                        <span class="email-error" style="display:none;">Please enter a valid email address.</span>
+                        
+                        <textarea name="message" class="bl-textarea" placeholder="Your Message" required></textarea>
+                        
+                        <input type="text" name="_honey" style="display:none">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="https://devkumarweb.netlify.app/">
+                        
+                        <button type="submit" class="bl-btn">Send Message <i class="fas fa-paper-plane"></i></button>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <input type="email" name="email" placeholder="Your Email" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
-                    <span class="email-error" style="display:none;color:#ff4d4d;font-size:0.95rem;">Please enter a valid email address.</span>
+                <div class="contact-info">
+                    <h3 class="bl-kicker" style="margin-bottom: 24px; color: var(--cream);">Direct Contacts</h3>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <p class="contact-label">Email</p>
+                            <a href="mailto:dk25042008@gmail.com" class="bl-entry-link">dk25042008@gmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <div>
+                            <p class="contact-label">GitHub</p>
+                            <a href="https://github.com/DEVKUMAR9012" target="_blank" class="bl-entry-link">github.com/DEVKUMAR9012</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <div>
+                            <p class="contact-label">LinkedIn</p>
+                            <a href="https://linkedin.com/in/dev-kumar-950376305" target="_blank" class="bl-entry-link">linkedin.com/in/dev-kumar-950376305</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <textarea name="message" placeholder="Your Message" required></textarea>
-                </div>
-                <input type="text" name="_honey" style="display:none">
-                <input type="hidden" name="_captcha" value="false">
-                <!-- We can remove _next so it shows FormSubmit default success page, or redirect to home -->
-                <input type="hidden" name="_next" value="https://devkumarweb.netlify.app/">
-                <button type="submit" class="submit-btn home-btn">Send Message</button>
-            </form>
+            </div>
+        </section>
+
+        <div class="bl-seam" aria-hidden="true">
+            <svg class="bl-seam-svg" viewBox="0 0 1200 34" preserveAspectRatio="none">
+                <path class="bl-seam-fill" d="M0 34 L0 16 Q 300 2, 600 14 T 1200 10 L1200 34 Z" />
+                <path class="bl-seam-stroke" filter="url(#blRough)" d="M0 16 Q 300 2, 600 14 T 1200 10" />
+            </svg>
         </div>
+
+        <section class="bl-page">
+            <svg class="bl-grain" aria-hidden="true">
+                <rect width="100%" height="100%" filter="url(#blGrain)" />
+            </svg>
+            <footer class="bl-footer">
+                <p class="bl-footer-line">— awaiting your message</p>
+                <div class="bl-footer-links">
+                    <a href="https://github.com/DEVKUMAR9012" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://linkedin.com/in/dev-kumar-950376305" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+                </div>
+            </footer>
+        </section>
     </main>
 
     <script src="script.js"></script>
@@ -52,7 +216,7 @@
     document.addEventListener('DOMContentLoaded', function() {
         var form = document.getElementById('contactForm');
         var emailInput = form.email;
-        var errorSpan = emailInput.parentElement.querySelector('.email-error');
+        var errorSpan = document.querySelector('.email-error');
         var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
         form.addEventListener('submit', function(e) {
