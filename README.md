@@ -1,61 +1,56 @@
-# 🌟 Dev Kumar – Portfolio Website
+# 🌟 Dev Kumar – Personal Portfolio Website
 
-Welcome to my **personal portfolio repository** 🎉  
-This project represents my journey as a developer, highlighting my skills, projects, and professional presence on the web.  
-The site is fully **responsive**, built with **HTML, CSS, and JavaScript**, and hosted on **Netlify**.
+Welcome to my personal portfolio repository! 🚀  
+This website showcases my journey as a developer, featuring my technical skills, shipped projects, and contact details built with a modern, responsive **Build Log** theme.
 
 ---
 
 ## 🔗 Live Demo
-👉 [View Portfolio](myportfolio-vert-six-67.vercel.app)
+👉 **[Visit Live Portfolio](https://myportfolio-vert-six-67.vercel.app/)**
 
 ---
 
-## 📑 Sections Overview
+## 📑 Page Overview
 
-- **🏠 Home** – A welcoming introduction with navigation.  
-- **👤 About** – My background, education, skills, and interests.  
-- **💻 Projects** – Selected works and case studies with live links.  
-- **📬 Contact** – Contact form powered by EmailJS.  
-
----
-
-## 📸 Visual Preview
-
-### 🏠 Home
-![Home Screenshot](https://github.com/user-attachments/assets/4b25b7b1-ff59-445a-940c-9b35c102207d)
-
-### 👤 About
-![About Screenshot](https://github.com/user-attachments/assets/00faedb9-bdd6-44c5-a49e-4c741ba93f46)
-
-### 💻 Projects
-![Projects Screenshot](https://github.com/user-attachments/assets/64ebc29e-4065-4243-8f8d-d6b14a2d1c40)
-
-### 📬 Contact
-![Contact Screenshot](https://github.com/user-attachments/assets/9ddae9d5-9424-44eb-b2d7-a07e4c6fdb69)
+- **👤 About (Home)** – Personal introduction, profile picture, and full tech stack with official icons.
+- **💻 Projects** – Chronological log of shipped full-stack and web applications with live links and details.
+- **📬 Contact** – Interactive message form and direct contact links (Email, GitHub, LinkedIn).
 
 ---
 
-## 🛠️ Built With
+## 📸 Visual Previews
 
-- HTML5 & CSS3  
-- JavaScript (Vanilla JS)  
-- Font Awesome (icons)  
-- Netlify (deployment)  
-- Git & GitHub (version control)  
+### 👤 About Page
+![About Page Preview](ss/about-preview.png)
+
+### 💻 Projects Page
+![Projects Page Preview](ss/projects-preview.png)
+
+### 📬 Contact Page
+![Contact Page Preview](ss/contact-preview.png)
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend & Core:** React.js, HTML5, CSS3, JavaScript
+- **Languages:** C, C++, Python, SQL
+- **Database & Cloud:** MongoDB Atlas
+- **Icons & Styling:** FontAwesome & Devicon
+- **Deployment & Version Control:** Vercel, Git & GitHub
 
 ---
 
 ## 📂 Project Structure
 
 ```bash
-webproject/
-├── index.html       # Home page
+myportfolio/
+├── index.html       # Main Home page (About)
 ├── about.html       # About section
 ├── projects.html    # Projects showcase
-├── contact.html     # Contact form
-├── account.html     # Profile page
-├── styles.css       # Styling
-├── script.js        # Interactive features
-├── resume.pdf       # Resume
-└── screenshots/     # UI screenshots
+├── contact.html     # Contact page
+├── theme.css        # Main stylesheet & tokens
+├── script.js        # Interactive scripts
+├── resume.pdf       # Downloadable resume
+└── ss/              # Screenshots & images
+```
