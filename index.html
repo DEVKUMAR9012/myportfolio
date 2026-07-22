@@ -1,24 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#1E1712">
-    <meta name="description"
-        content="Dev Kumar — a chronological log of full-stack projects actually shipped, not just submitted.">
-    <title>Dev Kumar — Projects</title>
+    <title>Dev Kumar — About</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&family=Caveat:wght@500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="theme.css">
+    <style>
+        .about-content {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        .about-image {
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            display: flex;
+            justify-content: center;
+        }
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            border: 2px solid var(--brass);
+            box-shadow: 8px 8px 0px rgba(201, 162, 75, 0.2);
+        }
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 30px;
+        }
+        .skill-item {
+            font-size: .85rem;
+            color: var(--ink);
+            border: 1px solid rgba(42, 33, 24, .2);
+            border-radius: 999px;
+            padding: 6px 14px;
+            background: rgba(107, 79, 28, .05);
+        }
+    </style>
 </head>
-
 <body class="bl">
-
     <svg width="0" height="0" style="position:absolute" aria-hidden="true">
         <defs>
             <filter id="blRough" x="-30%" y="-30%" width="160%" height="160%">
@@ -36,17 +68,14 @@
         <div class="bl-nav-inner">
             <span class="bl-wordmark">Dev<span>Kumar</span></span>
             <nav class="bl-navlinks" aria-label="Primary">
-                <a href="about.html">About</a>
-                <a href="projects.html" class="is-active" aria-current="page">Projects</a>
+                <a href="index.html" class="is-active" aria-current="page">About</a>
+                <a href="projects.html">Projects</a>
                 <a href="contact.html">Contact</a>
             </nav>
             <div class="bl-navicons">
-                <a href="https://github.com/DEVKUMAR9012" target="_blank" rel="noopener noreferrer"
-                    aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/dev-kumar-950376305" target="_blank" rel="noopener noreferrer"
-                    aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume"><i
-                        class="fas fa-file-alt"></i></a>
+                <a href="https://github.com/DEVKUMAR9012" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/dev-kumar-950376305" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume"><i class="fas fa-file-alt"></i></a>
             </div>
         </div>
     </header>
@@ -56,18 +85,36 @@
             <svg class="bl-grain" aria-hidden="true">
                 <rect width="100%" height="100%" filter="url(#blGrain)" />
             </svg>
-
             <div class="bl-hero">
-                <p class="bl-kicker" id="kicker">06 shipped · 3rd-sem CSE</p>
-                <h1 class="bl-headline">A log of what I've actually
-                    <span class="bl-underline">built<svg class="bl-underline-svg" viewBox="0 0 140 16"
-                            preserveAspectRatio="none" aria-hidden="true">
-                            <path class="bl-underline-path" filter="url(#blRough)" d="M2 9 Q 35 3, 70 8 T 138 6" />
-                        </svg></span>.
+                <p class="bl-kicker">Developer · Creator</p>
+                <h1 class="bl-headline">About 
+                    <span class="bl-underline">me<svg class="bl-underline-svg" viewBox="0 0 140 16" preserveAspectRatio="none" aria-hidden="true"><path class="bl-underline-path" filter="url(#blRough)" d="M2 9 Q 35 3, 70 8 T 138 6" /></svg></span>.
                 </h1>
-            </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p class="bl-subline">I'm Dev Kumar, a passionate developer skilled in C, C++, Java, Python, Ruby, HTML, CSS, and SQL. I love building user-friendly websites and applications.</p>
+                        
+                        <div style="margin-top: 30px;">
+                            <p class="bl-kicker" style="margin-bottom: 10px;">Tech Stack</p>
+                            <div class="bl-tags">
+                                <li style="font-size: .85rem; padding: 6px 14px;">C</li>
+                                <li style="font-size: .85rem; padding: 6px 14px;">C++</li>
+                                <li style="font-size: .85rem; padding: 6px 14px;">Python</li>
+                                <li style="font-size: .85rem; padding: 6px 14px;">JavaScript</li>
+                                <li style="font-size: .85rem; padding: 6px 14px;">HTML</li>
+                                <li style="font-size: .85rem; padding: 6px 14px;">CSS</li>
+                            </div>
+                        </div>
 
-            <div class="bl-ledger" id="ledger-featured"></div>
+                        <div style="margin-top: 40px;">
+                            <a href="contact.html" class="bl-entry-link" style="font-size: 1rem;">Get in touch <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <img src="ss/Snapchat-290620880.jpg.jpeg" alt="Profile picture of Dev Kumar" />
+                    </div>
+                </div>
+            </div>
         </section>
 
         <div class="bl-seam" aria-hidden="true">
@@ -81,151 +128,17 @@
             <svg class="bl-grain" aria-hidden="true">
                 <rect width="100%" height="100%" filter="url(#blGrain)" />
             </svg>
-
-            <div class="bl-ledger bl-ledger--compact bl-wrap" id="ledger-compact"></div>
-
             <footer class="bl-footer">
-                <p class="bl-footer-line">— logged by Dev, more entries as I ship them</p>
+                <p class="bl-footer-line">— logged by Dev</p>
                 <div class="bl-footer-links">
                     <a href="https://github.com/DEVKUMAR9012" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    <a href="https://linkedin.com/in/dev-kumar-950376305" target="_blank"
-                        rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://linkedin.com/in/dev-kumar-950376305" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                     <a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
                     <a href="contact.html">Contact</a>
                 </div>
             </footer>
         </section>
     </main>
-
-    <script>
-        const PROJECTS = [
-            {
-                entryNo: '01', name: 'NotesHere',
-                tagline: 'A notes marketplace for college students',
-                description: 'Students buy and sell study notes here — real Razorpay payments, Google OAuth, live buyer–seller chat, an in-app wallet, and a few AI tools for actual studying.',
-                note: 'the one that taught me what “production” really means',
-                tags: ['React', 'Node.js', 'Express', 'MongoDB', 'Razorpay', 'Google OAuth'],
-                categories: ['fullstack', 'ai'],
-                link: 'https://noteshere.site', linkLabel: 'noteshere.site',
-                featured: true
-            },
-            {
-                entryNo: '02', name: 'LoveForLove',
-                tagline: 'A small, interactive world built for two people',
-                description: 'Mood tracking with streaks, a shared calendar, a private gallery, and a lot of small animated details — the kind of app where the polish is the whole point.',
-                note: 'still polishing this one, nobody’s even asking me to',
-                tags: ['React', 'Tailwind CSS', 'Framer Motion', 'React Router'],
-                categories: ['fullstack'],
-                link: 'https://loveforlove.vercel.app', linkLabel: 'loveforlove.vercel.app',
-                featured: true
-            },
-            {
-                entryNo: '03', name: 'Daily News Digest',
-                tagline: 'News portal with category filters, live search & auth-gated bookmarks',
-                tags: ['HTML', 'CSS', 'JavaScript', 'Google OAuth', 'Vercel'],
-                categories: ['web', 'fullstack'],
-                link: 'https://news-blond-sigma.vercel.app/', linkLabel: 'news-blond-sigma.vercel.app',
-                featured: false
-            },
-            {
-                entryNo: '04', name: 'ZIZZY',
-                tagline: 'Food delivery ordering interface — menu, cart, checkout',
-                tags: ['HTML', 'CSS', 'JavaScript'],
-                categories: ['web'],
-                link: 'https://685266a38cd352d07ebf8de5--rainbow-mousse-f22f4d.netlify.app/111', linkLabel: 'view live demo',
-                featured: false
-            },
-            {
-                entryNo: '05', name: 'Advanced AI Research Center',
-                tagline: 'A concept hub for NLP, vision & robotics',
-                tags: ['HTML', 'CSS', 'JavaScript'],
-                categories: ['ai', 'web'],
-                link: 'https://deivocationalit2305800.netlify.app/', linkLabel: 'view live demo',
-                featured: false
-            },
-            {
-                entryNo: '06', name: 'E-Commerce Web App',
-                tagline: 'Storefront with a full cart & checkout flow',
-                tags: ['HTML', 'CSS', 'JavaScript'],
-                categories: ['web'],
-                link: 'https://ecomwebdev.netlify.app/', linkLabel: 'view live demo',
-                featured: false
-            }
-        ];
-
-        function stamp(p) {
-            if (!p.link) {
-                return '<span class="bl-stamp bl-stamp--dev"><span class="bl-stamp-ring"></span><span class="bl-stamp-text">in dev</span></span>';
-            }
-            return '<span class="bl-stamp"><span class="bl-stamp-ring" style="filter:url(#blRough)"></span><span class="bl-stamp-text">live</span></span>';
-        }
-
-        function majorEntry(p) {
-            return `
-    <article class="bl-entry">
-      <div class="bl-entry-num">${p.entryNo}</div>
-      <div class="bl-entry-body">
-        <div class="bl-entry-head">
-          <h3 class="bl-entry-name">${p.name}</h3>
-          ${stamp(p)}
-        </div>
-        <p class="bl-entry-tagline">${p.tagline}</p>
-        <p class="bl-entry-desc">${p.description}</p>
-        <ul class="bl-tags" aria-label="Tech stack">${p.tags.map(t => `<li>${t}</li>`).join('')}</ul>
-        ${p.link
-                    ? `<a class="bl-entry-link" href="${p.link}" target="_blank" rel="noopener noreferrer">${p.linkLabel} <i class="fas fa-arrow-right" aria-hidden="true"></i></a>`
-                    : `<span class="bl-entry-link bl-entry-link--muted">not deployed yet</span>`}
-      </div>
-      ${p.note ? `<div class="bl-note"><span class="bl-note-mark">✎</span>${p.note}</div>` : '<div></div>'}
-    </article>`;
-        }
-
-        function minorEntry(p) {
-            return `
-    <article class="bl-row">
-      <div class="bl-row-top">
-        <span class="bl-row-num">${p.entryNo}</span>
-        <span class="bl-row-dot ${p.link ? '' : 'bl-row-dot--dev'}" aria-hidden="true"></span>
-      </div>
-      <span class="bl-row-name">${p.name}</span>
-      <span class="bl-row-tagline">${p.tagline}</span>
-      <ul class="bl-row-tags">${p.tags.slice(0, 3).map(t => `<li>${t}</li>`).join('')}</ul>
-      ${p.link
-                    ? `<a class="bl-row-link" href="${p.link}" target="_blank" rel="noopener noreferrer">${p.linkLabel} <i class="fas fa-arrow-right" aria-hidden="true"></i></a>`
-                    : `<span class="bl-row-link bl-row-link--muted">in dev</span>`}
-    </article>`;
-        }
-
-        const featuredEl = document.getElementById('ledger-featured');
-        const compactEl = document.getElementById('ledger-compact');
-
-        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        const observer = reduceMotion ? null : new IntersectionObserver((entries) => {
-            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); observer.unobserve(e.target); } });
-        }, { threshold: .12 });
-
-        function render(filter) {
-            const filtered = filter === 'all' ? PROJECTS : PROJECTS.filter(p => p.categories.includes(filter));
-            const featured = filtered.filter(p => p.featured);
-            const rest = filtered.filter(p => !p.featured);
-
-            featuredEl.innerHTML = featured.map(majorEntry).join('');
-
-            if (filtered.length === 0) {
-                compactEl.innerHTML = '<p class="bl-empty">Nothing logged under this filter yet.</p>';
-            } else {
-                compactEl.innerHTML = rest.map(minorEntry).join('');
-            }
-
-            if (observer) {
-                document.querySelectorAll('.bl-entry, .bl-row').forEach(el => observer.observe(el));
-            } else {
-                document.querySelectorAll('.bl-entry, .bl-row').forEach(el => el.classList.add('is-visible'));
-            }
-        }
-
-        render('all');
-    </script>
+    <script src="script.js"></script>
 </body>
-
 </html>
